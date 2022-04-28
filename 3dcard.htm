@@ -1,0 +1,136 @@
+<html>
+
+<head>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
+    <style>
+        body {
+            padding: 0;
+            margin: 0;
+        }
+
+        * {
+            transition: all 0.5s;
+            font-family: arial;
+            box-sizing: border-box;
+        }
+
+        .card-container {
+            background-color: #efefef;
+            width: 100%;
+            height: 100%;
+            justify-content: center;
+            align-items: center;
+            display: flex;
+            perspective: 700px;
+        }
+
+        .card {
+            overflow: hidden;
+            height: calc(25vw*1.33);
+            width: 25vw;
+            display: inline-block;
+            background-color: #fff;
+        }
+
+        .card-left {
+            z-index: 10;
+        }
+
+        .card img {
+            width: 100%;
+        }
+
+        .card-right {
+            padding: 12px;
+        }
+
+        .card-right-content {
+            padding: 0 24px;
+            display: flex;
+            height: 100%;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .card-right {
+            box-shadow: 5px 5px 24px #bfbfbf;
+        }
+
+        .social-media-icon-container {
+            width: 100%;
+            display: flex;
+            justify-content: space-evenly;
+            margin-top: 24px;
+        }
+
+        .social-media-icon-container div {
+            background-color: #333;
+            padding: 12px;
+            font-size: 1vw;
+            border-radius: 50%;
+            color: white;
+            transition: all 0.2s;
+            cursor: pointer;
+        }
+
+        .social-media-icon-container div:hover {
+            background-color: #db3e17;
+            color: white;
+        }
+
+        .main-heading {
+            font-size: 2vw;
+            font-weight: 500;
+        }
+
+        .sub-heading {
+            margin-top: 6px;
+            color: #db3e17;
+            font-weight: 700;
+            font-size: 0.85vw;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="card-container" onclick="stackDiv()">
+        <div id="card-left" class="card card-left"><img src="sample.jpeg"></div>
+        <div id="card-right" class="card card-right">
+            <div class="card-right-content">
+                <div class="main-heading">
+                    NAVDEEP SHARMA
+                </div>
+                <div class="sub-heading">
+                    UI/UX Designer
+                </div>
+                <div class="social-media-icon-container">
+                    <div><i class="bi bi-twitter"></i></div>
+                    <div><i class="bi bi-google"></i></div>
+                    <div><i class="bi bi-facebook"></i></div>
+                    <div><i class="bi bi-linkedin"></i></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        var flag = true;
+        function stackDiv() {
+            var cardLeft = document.getElementById("card-left");
+            var cardRight = document.getElementById("card-right");
+            if (flag) {
+                cardLeft.style.transform = "translateX(50%)";
+                cardRight.style.transform = "translateX(-50%)";
+            }
+            else {
+                cardLeft.style.transform = "translateX(0%)";
+                cardRight.style.transform = "translateX(0%)";
+            }
+
+            flag = !flag;
+        }
+    </script>
+</body>
+
+</html>
